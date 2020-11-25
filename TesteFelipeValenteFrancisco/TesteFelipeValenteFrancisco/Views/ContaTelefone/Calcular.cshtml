@@ -1,0 +1,36 @@
+﻿@model TesteFelipeValenteFrancisco.Models.ContaTelefoneViewModel
+
+@{
+    ViewData["Title"] = "Calcular Conta de Telefone";
+}
+
+<h1>Calcular</h1>
+
+<h4>Conta de Telefone</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Calcular">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ValorMinuto" class="control-label">Valor Minuto (Centavos)</label>
+                <input asp-for="ValorMinuto" class="form-control" />
+                <span asp-validation-for="ValorMinuto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DuracaoChamadaSegundos" class="control-label">Duração da Chamada (Segundos)</label>
+                <input asp-for="DuracaoChamadaSegundos" class="form-control" />
+                <span asp-validation-for="DuracaoChamadaSegundos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Calcular" class="btn btn-primary" />
+            </div>
+        </form>
+        <h5>@ViewData["Message"]</h5>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

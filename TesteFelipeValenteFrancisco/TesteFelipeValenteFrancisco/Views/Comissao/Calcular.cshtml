@@ -1,0 +1,45 @@
+﻿@model TesteFelipeValenteFrancisco.Models.ComissaoViewModel
+
+@{
+    ViewData["Title"] = "Calcular Comissão";
+}
+
+<h1>Calcular</h1>
+
+<h4>Salário Total</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Calcular">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="QuantidadeCarros" class="control-label">Carros Vendidos</label>
+                <input asp-for="QuantidadeCarros" class="form-control" />
+                <span asp-validation-for="QuantidadeCarros" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorVendas" class="control-label">Valor Vendas</label>
+                <input asp-for="ValorVendas" class="form-control" />
+                <span asp-validation-for="ValorVendas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SalarioFixo" class="control-label">Salário Fixo</label>
+                <input asp-for="SalarioFixo" class="form-control" />
+                <span asp-validation-for="SalarioFixo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BonusVenda" class="control-label">Bonus por Carro Vendido</label>
+                <input asp-for="BonusVenda" class="form-control" />
+                <span asp-validation-for="BonusVenda" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Calcular" class="btn btn-primary" />
+            </div>
+        </form>
+        <h5>@ViewData["Message"]</h5>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
